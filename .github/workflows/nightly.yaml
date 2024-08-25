@@ -494,8 +494,8 @@ jobs:
         mv .dub/packages/local-packages.win.json .dub/packages/local-packages.json
 
         dub add-path .flatpak-dub
-        dub add-local .flatpak-dub/semver/*/semver;
-        dub add-local .flatpak-dub/gitver/*/gitver;
+        @For /D %%A In (.flatpak-dub\semver\*) Do @If Exist "%%A\semver\" dub add-local "%%A\semver"
+        @For /D %%A In (.flatpak-dub\gitver\*) Do @If Exist "%%A\gitver\" dub add-local "%%A\gitver"
 
     - name: 'Build nijigenerate'
       run: |
