@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.grillo_delmal.nijigenerate</id>
+  <name>nijigenerate (Dev Test)</name>
+  <summary>Tool to create and edit nijilive puppets</summary>
+  <developer id="com.nijigenerate">
+    <name>seagetty</name>
+  </developer>
+  <launchable type="desktop-id">io.github.grillo_delmal.nijigenerate.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>BSD-2-Clause</project_license>
+  <description>
+    <p>This is a development test version of the software maintained by Grillo del Mal, use at your own risk.</p>
+    <p>nijilive is a framework for realtime 2D puppet animation which can be used for VTubing, 
+      game development and digital animation.</p>
+    <p>nijigenerate is a tool that lets you create and edit nijilive puppets.</p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Title screen</caption>
+      <image type="source">https://user-images.githubusercontent.com/7032834/194462402-74c4a3e0-50ca-4b50-8e8d-164d97371f5a.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="0.8.5+build.4.g1b1ad5a.20240824T011134Z" date="2024-08-24">
+      <description>
+         <p>This is a development test build of nijigenerate!</p>
+         <p>nijigenerate may crash unexpectedly and you will likely encounter bugs.</p>
+         <p>Make sure to save and back up your work often!</p>
+      </description>
+    </release>
+  </releases>
+  <url type="homepage">https://github.com/grillo-delmal/nijigenerate-nightly</url>
+  <categories>
+    <category>Graphics</category>
+  </categories>
+  <recommends>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </recommends>
+  <content_rating type="oars-1.1"/>
+</component>

@@ -1,0 +1,4 @@
+type: git
+url: https://github.com/nijigenerate/nijigenerate.git
+commit: 3df528aebe0e5bb0c205a6d125fd18471013e24b
+disable-shallow-clone: true
