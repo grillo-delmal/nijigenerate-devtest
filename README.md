@@ -8,11 +8,11 @@ For normal supported usage, please get a supported official version from the [ni
 
 You can get the latest builds from the [release section](https://github.com/grillo-delmal/nijigenerate-nightly/releases/tag/nightly).
 
-Linux builds of this repository are also provided through the [nijigenerate Flatpak DevTest](https://github.com/grillo-delmal/nijigenerate-flatpak-devtest) repo.
+Linux builds of this repository are also provided through the [nijilive Flatpak DevTest](https://github.com/grillo-delmal/nijilive-flatpak-devtest) repo.
 
 ```sh
-flatpak remote-add grillo-nijigenerate oci+https://grillo-delmal.github.io/nijigenerate-flatpak-devtest
-flatpak install grillo-nijigenerate io.github.grillo_delmal.nijigenerate
+flatpak remote-add grillo-nijilive oci+https://grillo-delmal.github.io/nijilive-flatpak-devtest
+flatpak install grillo-nijilive io.github.grillo_delmal.nijigenerate
 ```
 
 ## Tips
