@@ -83,6 +83,10 @@ modules:
         dub build --skip-registry=all --build=release --config=linux-nightly --debug=InExperimental
       - install -Dm 755 ./out/nijigenerate /app/bin/nijigenerate
       - install -Dm644 ./otl/*.mo /app/bin
+      # Metadata
+      - install -Dm644 io.github.grillo_delmal.nijigenerate.metainfo.xml /app/share/metainfo/io.github.grillo_delmal.nijigenerate.metainfo.xml
+      - install -Dm644 nijigenerate.desktop /app/share/applications/io.github.grillo_delmal.nijigenerate.desktop
+      - install -Dm644 ./res/logo_256.png /app/share/icons/hicolor/256x256/apps/io.github.nijigenerate.nijigenerate.png
 
     sources:
       - dub-add-local-sources.json
@@ -90,23 +94,8 @@ modules:
       - type: dir
         path: patches/
         dest: patches/
-
-  - name: metadata
-    buildsystem: simple
-    build-commands:
-
-      - install -Dm644 io.github.grillo_delmal.nijigenerate.metainfo.xml /app/share/metainfo/io.github.grillo_delmal.nijigenerate.metainfo.xml
-      - install -Dm644 ./vpuppet-rigging.png /app/share/icons/hicolor/128x128/apps/io.github.grillo_delmal.nijigenerate.png
-      - install -Dm644 nijigenerate.desktop /app/share/applications/io.github.grillo_delmal.nijigenerate.desktop
-
-    sources:
-      - type: git
-        url: https://github.com/grillo-delmal/vpuppet-icons.git
-        commit: 5a0504eed1fb1b1a80415b17d9c860e01bebb191
-
       - type: file
         path: nijigenerate.desktop
-
       - type: file
         path: io.github.grillo_delmal.nijigenerate.metainfo.xml
 
