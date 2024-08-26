@@ -109,7 +109,7 @@ fi
 
 # Make sure to apply patches beforehand
 popd
-bash ./patches/apply_patches.sh dep.build/deps dep.build/nijigenerate
+bash ./scripts/apply_local_patches.sh dep.build/deps dep.build/nijigenerate
 pushd dep.build
 
 echo "### Build Stage"
