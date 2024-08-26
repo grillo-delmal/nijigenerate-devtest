@@ -28,7 +28,7 @@ flatpak-builder build-dir io.github.grillo_delmal.nijigenerate.yml --force-clean
 You can also install debug symbols.
 
 ```sh
-flatpak install grillo-nijigenerate io.github.grillo_delmal.nijigenerate.Debug
+flatpak install grillo-nijilive io.github.grillo_delmal.nijigenerate.Debug
 ```
 
 And with that you will be able to debug it with gdb as [any other flatpak app](https://docs.flatpak.org/en/latest/debugging.html).
