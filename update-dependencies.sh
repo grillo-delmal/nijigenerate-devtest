@@ -91,6 +91,7 @@ mkdir -p ./deps
 pushd deps
 git clone https://github.com/nijigenerate/nijilive.git
 git clone https://github.com/Inochi2D/i2d-imgui.git
+git clone https://github.com/Inochi2D/kra-d.git
 
 # Download gitver and semver
 git clone https://github.com/Inochi2D/gitver.git
