@@ -367,6 +367,44 @@ jobs:
         commit-message: Update index
         target-branch: main
 
+  publish-nightly-rpm:
+    runs-on: ubuntu-latest
+    needs: build-base
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: 'main'
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.actor }}/nijigenerate-nightly-rpm
+        path: 'nijigenerate-nightly'
+        token: ${{ secrets.PAT }}
+    
+    - name: Download source files
+      uses: actions/download-artifact@v4
+      with:
+        name: nijigenerate-source
+        path: 'src/'
+
+    - name: Update repo
+      run : |
+        pushd nijigenerate-nightly
+        ./update.sh $(source ../main/scripts/gitver.sh; git_version ../src) $(source ../main/scripts/gitver.sh; git_build ../src) $(git -C ../src rev-parse --short=7 HEAD)
+        popd
+        cp -f src/dub.selections.json nijigenerate-nightly/dub.selections.json
+
+    - name: Push rpm repo
+      run: |
+        git config --global user.name 'Sync Process'
+        git config --global user.email 'sync-bot@users.noreply.github.com'
+        git -C nijigenerate-nightly commit --allow-empty -am "RPM Update $(date -u +%Y%m%d%H%M)"
+        git -C nijigenerate-nightly push
+
   build-linux-zip:
     runs-on: ubuntu-20.04
     needs: build-base
