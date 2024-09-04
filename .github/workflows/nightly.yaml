@@ -15,7 +15,6 @@ env:
   MANIFEST_PATH: io.github.grillo_delmal.nijigenerate.yml
   FLATPAK_BUNDLE: nijigenerate
   FLATPAK_BRANCH: devtest
-  DESTINATION_GITHUB_USERNAME: grillo-delmal 
   DESTINATION_REPOSITORY_NAME: nijilive-flatpak-devtest
   FLATPAK_BUILD_DIR: build-dir
   FLATPAK_BUILD_REPO: build-repo
@@ -324,13 +323,19 @@ jobs:
     steps:
     - run: echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
 
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        repository: ${{ github.actor }}/${{ env.DESTINATION_REPOSITORY_NAME }}
+        path: 'gh-pages'
+        token: ${{ secrets.PAT }}
+
     - name: Update static index
       env:
         REGISTRY_AUTH_FILE: /tmp/auth.json
       run: |
         export IMAGE_REPOSITORY=$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')
         set -x
-        git clone -b main https://github.com/$DESTINATION_GITHUB_USERNAME/$DESTINATION_REPOSITORY_NAME.git gh-pages
         mkdir -p ./gh-pages/repos
         skopeo inspect docker://ghcr.io/${IMAGE_REPOSITORY}:$FLATPAK_BRANCH | \
           jq --arg github_repository "${GITHUB_REPOSITORY}" '. as $img | { "Name": $github_repository, "Images": [$img] }' > \
@@ -356,16 +361,11 @@ jobs:
 
     - name: Push to repository
       if: steps.is-updated.outputs.updated
-      uses: cpina/github-action-push-to-another-repository@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.PAT }}
-      with:
-        source-directory: 'gh-pages'
-        destination-github-username: ${{ env.DESTINATION_GITHUB_USERNAME }}
-        destination-repository-name: ${{ env.DESTINATION_REPOSITORY_NAME }}
-        user-email: github-actions[bot]@users.noreply.github.com
-        commit-message: Update index
-        target-branch: main
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git -C gh-pages commit --allow-empty -am "Update index $(date -u +%Y%m%d%H%M)"
+        git -C gh-pages push
 
   publish-nightly-rpm:
     runs-on: ubuntu-latest
