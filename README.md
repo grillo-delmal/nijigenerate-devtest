@@ -1,4 +1,4 @@
-# nijigenerate Nightly Builds
+# nijigenerate DevTest Builds
 
 This is not an official build of nijigenerate. I use this system to check on the latest updates and to test new patches.
 Don't expect any warranty or support if you use the generated builds from this repository.
@@ -6,7 +6,7 @@ For normal supported usage, please get a supported official version from the [ni
 
 ## Installation
 
-You can get the latest builds from the [release section](https://github.com/grillo-delmal/nijigenerate-nightly/releases/tag/nightly).
+You can get the latest builds from the [release section](https://github.com/grillo-delmal/nijigenerate-devtest/releases/tag/nightly).
 
 Linux builds of this repository are also provided through the [nijilive Flatpak DevTest](https://github.com/grillo-delmal/nijilive-flatpak-devtest) repo.
 
@@ -37,7 +37,6 @@ And with that you will be able to debug it with gdb as [any other flatpak app](h
 flatpak run --command=sh --devel io.github.grillo_delmal.nijigenerate
 gdb --ex 'r' /app/bin/nijigenerate
 ```
-
 ### Debugging in Windows
 
-Download [WinDbg](http://www.windbg.org/) and the source code from the [release section](https://github.com/grillo-delmal/nijigenerate-nightly/releases/tag/nightly)... you can figure out the rest from there.
+Download [WinDbg](http://www.windbg.org/) and the source code from the [release section](https://github.com/grillo-delmal/nijigenerate-devtest/releases/tag/nightly)... you can figure out the rest from there.

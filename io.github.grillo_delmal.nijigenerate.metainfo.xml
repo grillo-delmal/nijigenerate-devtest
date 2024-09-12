@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
   <id>io.github.grillo_delmal.nijigenerate</id>
-  <name>nijigenerate (Dev Test)</name>
+  <name>nijigenerate (DevTest)</name>
   <summary>Tool to create and edit nijilive puppets</summary>
-  <developer id="com.nijigenerate">
+  <developer id="com.nijilive">
     <name>seagetty</name>
   </developer>
   <launchable type="desktop-id">io.github.grillo_delmal.nijigenerate.desktop</launchable>
@@ -30,7 +30,8 @@
       </description>
     </release>
   </releases>
-  <url type="homepage">https://github.com/grillo-delmal/nijigenerate-nightly</url>
+  <url type="homepage">https://github.com/grillo-delmal/nijigenerate-devtest</url>
+  <url type="bugtracker">https://github.com/grillo-delmal/nijigenerate-devtest/issues</url>
   <categories>
     <category>Graphics</category>
   </categories>

@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # can be manually dispatched under GitHub's "Actions" tab 
 
 env:
-  REPO_NAME: nijigenerate-nightly
+  REPO_NAME: nijigenerate-devtest
 
 jobs:
   release-check:
