@@ -22,7 +22,7 @@
     </screenshot>
   </screenshots>
   <releases>
-    <release version="0.7.1+build.1097.g6dc3c48.20240925T015118Z" date="2024-09-25">
+    <release version="0.7.1+build.1098.gf2677e4.20241001T015927Z" date="2024-10-01">
       <description>
          <p>This is a development test build of nijigenerate!</p>
          <p>nijigenerate may crash unexpectedly and you will likely encounter bugs.</p>
